@@ -76,8 +76,10 @@ const history = [
  export const Experience = () => {
   return (
     <section className={styles.container} id="experience">
-      
+       < br />
+          < br />
       <h2 className={styles.title}>Experience</h2>
+      < br />
       <div className={styles.content}>
         <div className={styles.skills}>
           {skillsData.map((skill, id) => (

@@ -61,10 +61,10 @@ export const Banner = () => {
 </p>
 <p>
 🌐 Tech Stack:
-Frontend: HTML, CSS, JavaScript (React.js, Vue.js)
-Backend: Node.js, Express.js, Django
+Frontend: HTML, CSS, JavaScript (React.js)
+Backend: Node.js, Django
 Database: MongoDB, MySQL, PostgreSQL
-Version Control: Git, GitHub a type specimen book.</p>
+Version Control: Git, GitHub .</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
