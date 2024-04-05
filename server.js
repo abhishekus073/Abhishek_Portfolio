@@ -1,52 +1,37 @@
-const express = require("express");
-const router = express.Router();
-const cors = require("cors");
-const nodemailer = require("nodemailer");
+import React from "react";
 
-// server used to send send emails
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+function App() {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: "abhishekus073@gmail.com",
-    pass: "zldn fkbb rssb qrgh"
-  },
-});
+    formData.append("access_key", "1f217ad5-4b9a-4855-a4e2-dff9b47f432a");
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "abhishekus073@gmail.com",
-    subject: "Contact Form Abhishek - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json(error);
-    } else {
-      res.json({ code: 200, status: "Message Sent" });
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("Success", res);
     }
-  });
-});
+  };
+
+  return (
+      <form onSubmit={onSubmit}>
+        <input type="text" name="name"/>
+        <input type="email" name="email"/>
+        <textarea name="message"></textarea>
+        <button type="submit">Submit Form</button>
+      </form>
+  );
+}
+
+export default App;
