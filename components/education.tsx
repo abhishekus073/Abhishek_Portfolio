@@ -18,7 +18,6 @@ const education = [
     duration: "2021 - 2024",
     description:
       "Studied the basics of software and app development, including programming, web design, and database management. Built  applications as part of the course.",
-    achievements: ["First Class with Distinction", "Led a team of 4 members in developing a smart helmet IoT project"],
   },
 ]
  
