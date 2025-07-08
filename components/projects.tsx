@@ -37,7 +37,7 @@ const projects = [
     image: "/Portfolio.png",
     technologies: ["Next.js", "Tailwind CSS"],
     github: "https://github.com",
-    demo: "https://demo-link.com",
+    demo: "https://abhishek-portfolio-gje1.vercel.app",
   },
 ]
 
