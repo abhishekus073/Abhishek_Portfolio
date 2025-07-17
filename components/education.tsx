@@ -75,7 +75,7 @@ export default function Education() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{item.description}</p>
-                  {item.achievements.length > 0 && (
+                  {item.achievements && item.achievements.length > 0 && (
                     <div>
                       <h4 className="font-medium flex items-center gap-2 mb-2 text-primary">
                         <Award className="h-4 w-4" />
